@@ -32,8 +32,8 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     private int health;
 
     [Header("Key Settings")]
-    public GameObject keyObject;
     public bool hasKey;
+    public GameObject keyIcon;
 
     [Header( "Vault Settings" )]
     public GameObject vaultObject;
@@ -101,6 +101,7 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
             CMDebug.TextPopup("Key!", transform.position);
             Destroy(collider.gameObject);
             hasKey = true;
+            keyIcon.gameObject.SetActive(true);
         }
     }
 

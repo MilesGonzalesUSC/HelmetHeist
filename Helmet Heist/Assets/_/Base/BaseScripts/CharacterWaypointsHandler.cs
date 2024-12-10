@@ -45,6 +45,8 @@ public class CharacterWaypointsHandler : MonoBehaviour {
     private UnitAnimType attackUnitAnim;
     private Vector3 lastMoveDir;
 
+    public Animator spriteAnim;
+
     private void Start() {
         Transform bodyTransform = transform.Find("Body");
         unitSkeleton = new V_UnitSkeleton(1f, bodyTransform.TransformPoint, (Mesh mesh) => bodyTransform.GetComponent<MeshFilter>().mesh = mesh);
@@ -58,6 +60,8 @@ public class CharacterWaypointsHandler : MonoBehaviour {
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
+
+
     }
 
     private void Update() {
@@ -137,7 +141,8 @@ public class CharacterWaypointsHandler : MonoBehaviour {
     private void HandleMovement() {
         switch (state) {
         case State.Waiting:
-            waitTimer -= Time.deltaTime;
+                spriteAnim.SetTrigger( "Idle" );
+                waitTimer -= Time.deltaTime;
             animatedWalker.SetMoveVector(Vector3.zero);
             if (waitTimer <= 0f) {
                 state = State.Moving;
@@ -150,7 +155,8 @@ public class CharacterWaypointsHandler : MonoBehaviour {
             lastMoveDir = waypointDir;
 
             float distanceBefore = Vector3.Distance(transform.position, waypoint);
-            animatedWalker.SetMoveVector(waypointDir);
+            spriteAnim.SetTrigger("Walk");
+            //animatedWalker.SetMoveVector(waypointDir);
             transform.position = transform.position + waypointDir * speed * Time.deltaTime;
             float distanceAfter = Vector3.Distance(transform.position, waypoint);
 
