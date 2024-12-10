@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6352426205087477612}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 80, y: 80, z: 51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -343,8 +343,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4567e24f574663b4ba6230a89e43a190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointList: []
-  waitTimeList: []
+  waypointList:
+  - {x: 85, y: 26, z: 51}
+  - {x: 85, y: 80, z: 51}
+  waitTimeList:
+  - 1
+  - 2
   idleAnimation: dMarine_Idle
   walkAnimation: dMarine_Walk
   idleFrameRate: 1
@@ -354,7 +358,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 60
   viewDistance: 30
-  spriteAnim: {fileID: 0}
+  spriteAnim: {fileID: 192381124545209552}
 --- !u!1 &8420670918449694383
 GameObject:
   m_ObjectHideFlags: 0
