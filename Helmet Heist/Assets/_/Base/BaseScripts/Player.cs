@@ -31,11 +31,20 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     private State state;
     private int health;
 
+    [Header("Key Settings")]
+    public GameObject keyObject;
+    public bool hasKey;
+
+    [Header( "Vault Settings" )]
+    public GameObject vaultObject;
+
+
     private enum State {
         Normal,
     }
 
     private void Awake() {
+        hasKey = false;
         instance = this;
         playerBase = gameObject.GetComponent<Player_Base>();
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
@@ -88,8 +97,10 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.name == "Trophy") {
-            CMDebug.TextPopup("Win!", transform.position);
+        if (collider.gameObject.name == "Key") {
+            CMDebug.TextPopup("Key!", transform.position);
+            Destroy(collider.gameObject);
+            hasKey = true;
         }
     }
 
