@@ -18,11 +18,16 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void NextLevel(int Scene) {
-        LoadLevel( Scene );
+    public void StartGame() {
+        LoadLevel( 0 );
 	}
 
-    IEnumerator LoadLevel(int Scene) {
+	public void QuitGame( ) {
+        QuitGame();
+	}
+
+	IEnumerator LoadLevel(int Scene) {
+
         fadeAnim.SetTrigger( "End" );
         yield return new WaitForSeconds( 1.5f );
         SceneManager.LoadSceneAsync( Scene );
