@@ -93,6 +93,8 @@ public class CharacterWaypointsHandler : MonoBehaviour {
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
                 if (raycastHit2D.collider != null) {
                     // Hit something
+
+                    //ADD GAME OVER HERE AND TAKE OUT SHOOTING
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
                         // Hit Player
                         StartAttackingPlayer();
