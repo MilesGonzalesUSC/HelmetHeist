@@ -3338,6 +3338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0eea3f0b5f02b44bb8c62d853e23f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnim: {fileID: 0}
+  hasKey: 0
+  keyIcon: {fileID: 0}
+  vaultObject: {fileID: 0}
 --- !u!114 &730932379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3939,8 +3943,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: dee376222848e90438fb664630ef1ed2, type: 3}
 --- !u!4 &814888835 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4660278464350348, guid: dee376222848e90438fb664630ef1ed2,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 4660278464350348, guid: dee376222848e90438fb664630ef1ed2, type: 3}
   m_PrefabInstance: {fileID: 814888834}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &834564157
@@ -4920,10 +4923,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 70
   viewDistance: 100
+  spriteAnim: {fileID: 0}
 --- !u!1 &1065981916
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,10 +5484,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 60
   viewDistance: 30
+  spriteAnim: {fileID: 0}
 --- !u!1 &1205313713
 GameObject:
   m_ObjectHideFlags: 0
@@ -5807,10 +5810,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 60
+  spriteAnim: {fileID: 0}
 --- !u!1 &1229448850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,10 +6645,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 60
   viewDistance: 30
+  spriteAnim: {fileID: 0}
 --- !u!1 &1419568086
 GameObject:
   m_ObjectHideFlags: 0
@@ -6707,10 +6710,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 1, y: 0, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 60
   viewDistance: 30
+  spriteAnim: {fileID: 0}
 --- !u!1 &1449764246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,10 +7050,10 @@ MonoBehaviour:
   walkFrameRate: 1
   aimDirection: {x: 0.4, y: -1, z: 0}
   player: {fileID: 730932378}
-  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d,
-    type: 3}
+  pfFieldOfView: {fileID: 5236222430075626550, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 60
   viewDistance: 50
+  spriteAnim: {fileID: 0}
 --- !u!1 &1509205176
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,8 +8833,8 @@ GameObject:
   - component: {fileID: 2136185160}
   - component: {fileID: 2136185159}
   m_Layer: 0
-  m_Name: SceneController
-  m_TagString: Untagged
+  m_Name: GameController
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
