@@ -30,6 +30,9 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     private Vector3 moveDir;
     private State state;
     private int health;
+    private bool moving;
+
+    public Animator playerAnim;
 
     [Header("Key Settings")]
     public bool hasKey;
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     }
 
     private void Awake() {
+        moving = false;
         hasKey = false;
         instance = this;
         playerBase = gameObject.GetComponent<Player_Base>();
@@ -80,6 +84,12 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             moveX = +1f;
         }
+
+        if(moveX != 0f || moveY != 0f) {
+            playerAnim.SetBool( "Walking", true );
+		} else {
+            playerAnim.SetBool( "Walking", false );
+		}
 
         moveDir = new Vector3(moveX, moveY).normalized;
     }
