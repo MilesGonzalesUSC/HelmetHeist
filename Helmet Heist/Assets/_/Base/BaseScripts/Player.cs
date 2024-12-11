@@ -41,6 +41,11 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     [Header( "Vault Settings" )]
     public GameObject vaultObject;
 
+    public Vector3 moveLocation;
+
+    public GameObject SceneController;
+
+
 
     private enum State {
         Normal,
@@ -113,6 +118,18 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
             hasKey = true;
             keyIcon.gameObject.SetActive(true);
         }
+
+        if(collider.gameObject.name =="Move Collider") {
+            transform.position = moveLocation;
+		}
+
+        if(collider.gameObject.name == "Vault Zone" && hasKey) {
+            vaultObject.GetComponent<VaultDoor>().open = true;
+		} else if(collider.gameObject.name == "Vault Zone" && !hasKey) {
+            CMDebug.TextPopup( "I need a Key!", transform.position );
+
+        }
+
     }
 
     public void DamageKnockback(Vector3 knockbackDir, float knockbackDistance) {
