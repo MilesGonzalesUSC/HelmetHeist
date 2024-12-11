@@ -15,6 +15,8 @@ using UnityEngine;
 using V_AnimationSystem;
 using CodeMonkey.Utils;
 using CodeMonkey;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
  * Player movement with WASD
@@ -44,6 +46,10 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
     public Vector3 moveLocation;
 
     public GameObject SceneController;
+
+    public Image badEnd;
+
+    private bool dead;
 
 
 
@@ -108,6 +114,10 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
             //transform.position += moveDir * SPEED * Time.deltaTime;
             playerRigidbody2D.MovePosition(transform.position + moveDir * SPEED * Time.fixedDeltaTime);
         }
+
+		if(dead) {
+            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+		}
         
     }
 
@@ -125,10 +135,15 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
 
         if(collider.gameObject.name == "Vault Zone" && hasKey) {
             vaultObject.GetComponent<VaultDoor>().open = true;
+            keyIcon.gameObject.SetActive( false );
 		} else if(collider.gameObject.name == "Vault Zone" && !hasKey) {
             CMDebug.TextPopup( "I need a Key!", transform.position );
 
         }
+
+        if(collider.gameObject.name == "Helmet Collide") {
+            SceneManager.LoadScene( "Ending Video" );
+		}
 
     }
 
@@ -156,6 +171,9 @@ public class Player : MonoBehaviour, EnemyHandler.IEnemyTargetable {
         if (health == 0) {
             FlyingBody.Create(GameAssets.i.pfEnemyFlyingBody, GetPosition(), bloodDir);
             gameObject.SetActive(false);
+            SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+
+            dead = true;
             //transform.Find("Body").gameObject.SetActive(false);
         }
     }
